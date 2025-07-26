@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTodo } from '../redux/taskSlice'
+import { deleteTask, fetchTodo } from '../redux/taskSlice'
 import { MdDelete, MdModeEditOutline } from 'react-icons/md'
 import EditTask from './edittask'
 
@@ -24,6 +24,9 @@ const TaskList = () => {
           return <p>Error {error}</p>
      }
 
+     const handleDelete=(id)=>{
+          dispatch(deleteTask(id))
+     }
 
 
      return (
@@ -42,7 +45,7 @@ const TaskList = () => {
                                    <div className='flex space-x-2'>
                                         <EditTask task={task}/>
                                        
-                                        <button><MdDelete /></button>
+                                        <button onClick={()=>handleDelete(task.id)}><MdDelete /></button>
                                    </div>
 
                               </li>
