@@ -1,19 +1,16 @@
 
 import { Routes, Route } from "react-router-dom"
+import TaskList from "./components/tasklist"
+import AddTask from "./components/addtask"
 
-import Navbar from "./components/navbar"
-import Footer from "./components/footer"
-import Home from "./pages/home"
+
+
 function App() {
-
-
+  
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-      <Footer />
+    <AddTask />
+     <TaskList />
     </>
   )
 }
